@@ -1,5 +1,5 @@
 import { StackNavigationProp } from '@react-navigation/stack';
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { StackParamList } from "../../../navigation/splashStackNavigation/stackParamList";
 
 type navigationType = StackNavigationProp<StackParamList,'splashScreen'>;
