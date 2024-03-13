@@ -1,8 +1,10 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 function ProfileScreen(): JSX.Element {
     return(
-        <View></View>
+        <View>
+            <Text>Perfil</Text>
+        </View>
     )
 }
 

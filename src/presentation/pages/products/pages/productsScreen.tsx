@@ -1,8 +1,10 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
 
 function ProductsScreen(): JSX.Element {
     return(
-        <View></View>
+        <View>
+            <Text>Productos</Text>
+        </View>
     )
 }
 

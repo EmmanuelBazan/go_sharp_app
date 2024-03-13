@@ -9,7 +9,9 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
+import { Provider } from 'react-redux';
 import SplashStackNavigation from './src/presentation/navigation/splashStackNavigation/splashStackNavigation';
+import store from './src/redux/store';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -19,13 +21,15 @@ function App(): JSX.Element {
   };
 
   return (
-    <NavigationContainer>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <SplashStackNavigation/>
-    </NavigationContainer>
+    <Provider store={store}>
+        <NavigationContainer>
+          <StatusBar
+            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+            backgroundColor={backgroundStyle.backgroundColor}
+          />
+          <SplashStackNavigation/>
+      </NavigationContainer>
+    </Provider>
   );
 }
 
