@@ -1,10 +1,13 @@
 import { StackNavigationProp } from '@react-navigation/stack';
 import { useEffect } from "react";
+import { useSelector } from 'react-redux';
+import { RootState } from '../../../../redux/store';
 import { StackParamList } from "../../../navigation/splashStackNavigation/stackParamList";
 
 type navigationType = StackNavigationProp<StackParamList,'splashScreen'>;
 
 export default function SplashScreenController(navigation:navigationType) {
+    const sessionState = useSelector((state: RootState) => state.session);
 
     useEffect(() => {
         setTimeout(() => {
@@ -13,7 +16,11 @@ export default function SplashScreenController(navigation:navigationType) {
     }, []);
     
     async function validateSession() {
-        navigation.navigate('loginScreen');
+        if(sessionState.loggedIn) {
+            navigation.navigate('homeTabNavigation');
+        } else {
+            navigation.navigate('loginScreen');
+        }
     }
 
     return {

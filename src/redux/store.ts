@@ -12,6 +12,7 @@ import {
     } from "redux-persist"
 import productList from "./states/productListState"
 import product from "./states/productState"
+import session from "./states/session"
 
 const persistConfig = {
     key: "root",
@@ -19,12 +20,14 @@ const persistConfig = {
     version: 1
 }
 
-const persistedReducer = persistReducer(persistConfig,productList)
+const productListPersisted = persistReducer(persistConfig,productList)
+const sessionPersisted = persistReducer(persistConfig,session)
 
 const store = configureStore({
     reducer: {
-        productList: persistedReducer,
-        product
+        product,
+        session: sessionPersisted,
+        productList: productListPersisted,
     },
     middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
