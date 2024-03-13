@@ -8,7 +8,8 @@ type props = {
     title: string 
     value?: string
     placeholder: string,
-    onChange: Function,
+    inputName: string,
+    onChange: (value:string, input:string) => void,
     isPassword?: boolean,
     keyBoardType?: KeyboardTypeOptions
 }
@@ -19,6 +20,7 @@ const CustomInput = ({
     placeholder,
     title,
     value,
+    inputName,
     keyBoardType = "default",
     isPassword = false,
 }:props) => {
@@ -30,7 +32,7 @@ const CustomInput = ({
             <Spacer height={2} />
             <TextInput 
                 placeholder={placeholder} 
-                onChangeText={text => onChange(text)}
+                onChangeText={text => onChange(text,inputName)}
                 value={value}
                 autoCapitalize="none"
                 keyboardType={keyBoardType}

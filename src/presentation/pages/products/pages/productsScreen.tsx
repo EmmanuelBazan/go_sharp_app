@@ -14,6 +14,7 @@ function ProductsScreen(): JSX.Element {
             <FlatList
                 data={productList}
                 style={{paddingTop: 0, width: '100%'}}
+                keyExtractor={(item, index) => index.toString()}
                 renderItem={(item) => {
                     let currentProduct:ProductModel = item.item;
                     return (

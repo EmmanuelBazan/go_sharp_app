@@ -1,38 +1,26 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ProductModel } from "../../domain/models/productModel";
 
 const initialState = {
-    products: <ProductModel[]> [
-        {
-            id: "1",
-            name: "producto 1",
-            description: "descripcion"
-        },
-        {
-            id: "2",
-            name: "producto 2",
-            description: "descripcion"
-        },
-        {
-            id: "3",
-            name: "producto 3",
-            description: "descripcion"
-        },
-    ],
+    name: "",
+    description: ""
 }
 
 export const productSlice = createSlice({
-    name: 'productList',
+    name: 'product',
     initialState: initialState,
     reducers: {
-        setProduct: (state,action) => {
-            state.products = action.payload;
+        setName: (state,action) => {
+            state.name = action.payload;
+        },
+        setDescription: (state,action) => {
+            state.description = action.payload;
         },
     }
 });
 
 export const {
-    setProduct
+    setName,
+    setDescription
 } = productSlice.actions;
 
 export default productSlice.reducer;
