@@ -1,3 +1,4 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import {
   SafeAreaView,
@@ -8,7 +9,7 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import LoginScreen from './src/presentation/pages/login/pages/login';
+import SplashStackNavigation from './src/presentation/navigation/splashStackNavigation/splashStackNavigation';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -18,13 +19,13 @@ function App(): JSX.Element {
   };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <NavigationContainer>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      <LoginScreen/>
-    </SafeAreaView>
+      <SplashStackNavigation/>
+    </NavigationContainer>
   );
 }
 

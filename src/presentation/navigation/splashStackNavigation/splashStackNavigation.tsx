@@ -1,34 +1,45 @@
 import { StackParamList } from './stackParamList';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import SplashScreen from '../../pages/splash/pages/splashScreen';
 import LoginScreen from '../../pages/login/pages/login';
 import SignUpScreen from '../../pages/signUp/pages/signUpScreen';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeTabNavigation from '../homeTabNavigation/homeTabNavigation';
 
-const Tab = createBottomTabNavigator<StackParamList>();
+const Stack = createNativeStackNavigator<StackParamList>();
 
-function HomeTabNavigation() {
+function SplashStackNavigation() {
     return (
-        <Tab.Navigator initialRouteName='splashScreen' safeAreaInsets={{bottom: 10}}  >
-            <Tab.Screen 
+        <Stack.Navigator initialRouteName='splashScreen'>
+            <Stack.Screen 
                 name="splashScreen" 
                 component={SplashScreen} 
                 options={{
                     headerShown: false,
+                    orientation: 'portrait'
                 }} />
-            <Tab.Screen 
+            <Stack.Screen 
                 name="loginScreen" 
                 component={LoginScreen} 
                 options={{
                     headerShown: false,
+                    orientation: 'portrait'
                 }} />
-            <Tab.Screen 
+            <Stack.Screen 
                 name="signUpScreen" 
                 component={SignUpScreen} 
                 options={{
                     headerShown: false,
+                    orientation: 'portrait'
                 }} />
-        </Tab.Navigator>
+            <Stack.Screen 
+                name="homeTabNavigation" 
+                component={HomeTabNavigation} 
+                options={{
+                    headerShown: false,
+                    orientation: 'portrait'
+                }} />
+        </Stack.Navigator>
     );
 }
 
-export default HomeTabNavigation;
+export default SplashStackNavigation;

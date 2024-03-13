@@ -1,8 +1,23 @@
-import { View } from "react-native";
+import { Text, View } from "react-native";
+import { StackNavigationProp } from '@react-navigation/stack';
 
-function SplashScreen(): JSX.Element {
+import UseController from "../controllers/splashScreenController"
+import { StackParamList } from "../../../navigation/splashStackNavigation/stackParamList";
+import styles from "../styles/splashScreenStyle";
+
+type navigationType = StackNavigationProp<StackParamList,'splashScreen'>;
+
+type props = {
+    navigation: navigationType
+}
+
+function SplashScreen({navigation}:props): JSX.Element {
+    const {} = UseController(navigation);
+
     return(
-        <View></View>
+        <View style={styles.mainContainer} >
+            <Text style={{fontSize: 20, fontWeight: '700'}} >Iniciando...</Text>
+        </View>
     )
 }
 
