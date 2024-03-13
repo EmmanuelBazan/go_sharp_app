@@ -3,7 +3,7 @@ import CustomInput from "../../../components/customInput/customInput";
 import Spacer from "../../../components/spacer/spacer";
 import styles from "../styles/loginStyles";
 
-function Login(): JSX.Element {
+function LoginScreen(): JSX.Element {
     return(
         <View style={styles.mainContainer}>
             <Text style={styles.title}>Iniciar sesion</Text>
@@ -25,4 +25,4 @@ function Login(): JSX.Element {
     )
 }
 
-export default Login;
+export default LoginScreen;
