@@ -7,7 +7,17 @@ const initialState = {
             id: "1",
             name: "producto 1",
             description: "descripcion"
-        }
+        },
+        {
+            id: "2",
+            name: "producto 2",
+            description: "descripcion"
+        },
+        {
+            id: "3",
+            name: "producto 3",
+            description: "descripcion"
+        },
     ],
 }
 
