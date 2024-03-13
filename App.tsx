@@ -10,8 +10,9 @@ import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import SplashStackNavigation from './src/presentation/navigation/splashStackNavigation/splashStackNavigation';
-import store from './src/redux/store';
+import store, { persistor } from './src/redux/store';
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -22,13 +23,15 @@ function App(): JSX.Element {
 
   return (
     <Provider store={store}>
+      <PersistGate persistor={persistor} >
         <NavigationContainer>
-          <StatusBar
-            barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-            backgroundColor={backgroundStyle.backgroundColor}
-          />
-          <SplashStackNavigation/>
-      </NavigationContainer>
+            <StatusBar
+              barStyle={isDarkMode ? 'light-content' : 'dark-content'}
+              backgroundColor={backgroundStyle.backgroundColor}
+            />
+            <SplashStackNavigation/>
+        </NavigationContainer>
+      </PersistGate>
     </Provider>
   );
 }
