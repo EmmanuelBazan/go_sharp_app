@@ -3,6 +3,7 @@ import CustomInput from "../../../components/customInput/customInput";
 import Spacer from "../../../components/spacer/spacer";
 
 import UseController from "../controllers/createProductScreenController"
+import styles from "../styles/createProductScreenStyles";
 
 function CreateProductScreen(): JSX.Element {
     const {
@@ -13,8 +14,8 @@ function CreateProductScreen(): JSX.Element {
     } = UseController();
 
     return(
-        <View style={{paddingHorizontal: 22}} >
-            <Text style={{fontSize: 18, fontWeight: '700'}} >Crear nuevo producto</Text>
+        <View style={styles.mainContainer} >
+            <Text style={styles.title} >Crear nuevo producto</Text>
             <Spacer height={30}/>
             <CustomInput 
                 title="Nombre del producto" 

@@ -14,7 +14,10 @@ type props = {
 
 function LoginScreen({navigation}:props): JSX.Element {
     
-    const {login} = UseController(navigation);
+    const {
+        login,
+        handleOnChangeInput
+    } = UseController(navigation);
 
     return(
         <View style={styles.mainContainer}>
@@ -22,14 +25,16 @@ function LoginScreen({navigation}:props): JSX.Element {
             <CustomInput 
                 title="Usuario" 
                 placeholder="Escribe tu usuario" 
-                onChange={() => {}}
+                onChange={handleOnChangeInput}
+                inputName="user"
             />
             <Spacer height={20}/>
             <CustomInput 
                 title="Contrasena" 
                 placeholder="Escribe tu contrasena" 
-                onChange={() => {}} 
+                onChange={handleOnChangeInput} 
                 isPassword={true}
+                inputName="password"
             />
             <Spacer height={40}/>
             <Button title="entrar" onPress={login}/>

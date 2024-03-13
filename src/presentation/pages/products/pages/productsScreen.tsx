@@ -1,27 +1,25 @@
 import { Text, View, FlatList } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import { ProductModel } from "../../../../domain/models/productModel";
 import Spacer from "../../../components/spacer/spacer";
+import ProductCard from "../components/productCard/productCard";
 import UseController from "../controllers/productsScreenController"
+import styles from "../styles/productsScreentStyles";
 
 function ProductsScreen(): JSX.Element {
     const {productList} = UseController();
 
     return(
-        <View style={{paddingHorizontal: 22}} >
-            <Text style={{fontSize: 18, fontWeight: '700'}} >Productos</Text>
+        <View style={styles.mainContainer} >
+            <Text style={styles.title} >Productos</Text>
             <Spacer height={30}/>
             <FlatList
                 data={productList}
-                style={{paddingTop: 0, width: '100%'}}
+                style={styles.flatListStyle}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={(item) => {
                     let currentProduct:ProductModel = item.item;
                     return (
-                        <View style={{backgroundColor: "#f2f2f2", borderRadius: 5, paddingHorizontal: 10, paddingVertical: 5}} >
-                            <Text style={{color: Colors.darker}} >{currentProduct.name}</Text>
-                            <Text style={{color: Colors.darker}} >{currentProduct.description}</Text>
-                        </View>
+                        <ProductCard product={currentProduct}/>
                     )
                 }}
                 ItemSeparatorComponent={() => <Spacer height={20} />}

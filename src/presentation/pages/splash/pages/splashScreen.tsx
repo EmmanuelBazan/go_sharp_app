@@ -16,7 +16,7 @@ function SplashScreen({navigation}:props): JSX.Element {
 
     return(
         <View style={styles.mainContainer} >
-            <Text style={{fontSize: 20, fontWeight: '700'}} >Iniciando...</Text>
+            <Text style={styles.title} >Iniciando...</Text>
         </View>
     )
 }

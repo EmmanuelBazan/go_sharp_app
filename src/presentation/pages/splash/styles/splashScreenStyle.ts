@@ -1,4 +1,4 @@
-import { StyleSheet, Dimensions } from "react-native";
+import { StyleSheet } from "react-native";
 
 import {
     Colors,
@@ -12,8 +12,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: Colors.darker
     },
-    img: {
-
+    title: {
+        fontSize: 20, 
+        fontWeight: '700'
     }
 });
 
